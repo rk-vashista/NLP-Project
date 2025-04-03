@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #0d9488;
+  --color-primary-hover: #14b8a6;
+  --color-background: #0f172a;
+  --color-card: #1e293b;
+  --color-text: #e2e8f0;
+  --color-text-muted: #94a3b8;
+  --color-border: #334155;
+  --color-success: #10b981;
+  --color-error: #ef4444;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* Button glow effect */
+.btn-glow:hover {
+  box-shadow: 0 0 15px rgba(20, 184, 166, 0.5);
+}
+
+/* Card hover effect */
+.card-hover {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+}
