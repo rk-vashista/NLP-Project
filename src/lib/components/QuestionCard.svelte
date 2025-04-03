@@ -49,6 +49,13 @@
       
       return descriptions[pos] || pos;
     }
+    
+    // Get all unique parts of speech in the analysis
+    function getUniquePOS() {
+      const posSet = new Set();
+      analysis.forEach(([_, pos]) => posSet.add(pos));
+      return Array.from(posSet);
+    }
   </script>
   
   <div in:fade={{ duration: 300 }} class="bg-slate-800 rounded-xl shadow-2xl p-6 md:p-8 border border-slate-700">
@@ -102,6 +109,21 @@
             </div>
           {/each}
         </div>
+        
+        <!-- Parts of Speech Legend -->
+        {#if analysis.length > 0}
+          <div class="mt-4 pt-4 border-t border-slate-700" in:fade={{ delay: analysis.length * 50 }}>
+            <h4 class="text-sm font-medium text-slate-300 mb-2">Parts of Speech Legend:</h4>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+              {#each getUniquePOS() as pos}
+                <div class="flex items-center gap-2">
+                  <div class="w-3 h-3 rounded-sm {getPosColor(pos).split(' ')[0]}"></div>
+                  <span>{getPosDescription(pos)}</span>
+                </div>
+              {/each}
+            </div>
+          </div>
+        {/if}
       </div>
       
       <button 
